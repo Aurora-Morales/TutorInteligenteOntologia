@@ -1,0 +1,1649 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.uacm.mx/ontologia/tutor/"
+     xml:base="http://www.uacm.mx/ontologia/tutor/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:tutor="http://www.uacm.mx/ontologia/tutor#">
+    <owl:Ontology rdf:about="http://www.uacm.mx/ontologia/tutor">
+        <rdfs:label>Ontología para un Tutor Inteligente</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#aprobo -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#aprobo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.uacm.mx/ontologia/tutor#noHaAprobado"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#inscribe -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#inscribe">
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#interesadoEn -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#interesadoEn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#noHaAprobado -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#noHaAprobado">
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#noPuedeCursar -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#noPuedeCursar">
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#noSeRecomienda -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#noSeRecomienda">
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#orienta -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#orienta">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Tutor"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#pertenece -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#pertenece">
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#puedeCursar -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#puedeCursar">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#quiereCursar -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#quiereCursar">
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#seRecomienda -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#seRecomienda">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#tiene -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#tiene">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Semestre"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#tienePrerequisito -->
+
+    <owl:ObjectProperty rdf:about="http://www.uacm.mx/ontologia/tutor#tienePrerequisito">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+        <rdfs:range rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#apellido -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uacm.mx/ontologia/tutor#apellido">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Persona"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#creditos -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uacm.mx/ontologia/tutor#creditos">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#matricula -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uacm.mx/ontologia/tutor#matricula">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#numEmpleado -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uacm.mx/ontologia/tutor#numEmpleado">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Tutor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#numMaxMaterias -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uacm.mx/ontologia/tutor#numMaxMaterias">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Semestre"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#promedio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.uacm.mx/ontologia/tutor#promedio">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Alumno -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Alumno">
+        <rdfs:subClassOf rdf:resource="http://www.uacm.mx/ontologia/tutor#Persona"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#inscribe"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#inscribe"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">9</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.uacm.mx/ontologia/tutor#Tutor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Impar -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Impar">
+        <rdfs:subClassOf rdf:resource="http://www.uacm.mx/ontologia/tutor#Semestre"/>
+        <owl:disjointWith rdf:resource="http://www.uacm.mx/ontologia/tutor#Par"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Materia -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Obligatoria -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Obligatoria">
+        <rdfs:subClassOf rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+        <owl:disjointWith rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Optativa -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Optativa">
+        <rdfs:subClassOf rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Par -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Par">
+        <rdfs:subClassOf rdf:resource="http://www.uacm.mx/ontologia/tutor#Semestre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Persona -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Persona"/>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Semestre -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Semestre"/>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#Tutor -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#Tutor">
+        <rdfs:subClassOf rdf:resource="http://www.uacm.mx/ontologia/tutor#Persona"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#sinPrerequisitos -->
+
+    <owl:Class rdf:about="http://www.uacm.mx/ontologia/tutor#sinPrerequisitos">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                                <owl:someValuesFrom rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#administracion_de_base_de_datos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_base_de_datos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_2">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#alexa -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#alexa">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#administracion_de_base_de_datos"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_2"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#computacion_movil"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#gestion_tecnologica"/>
+        <tutor:promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</tutor:promedio>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_de_sistemas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#arquitectura_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#diseño_de_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#tecnicas_de_pruebas_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#aurora -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#aurora">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#administracion_de_base_de_datos"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos"/>
+        <tutor:interesadoEn rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_web"/>
+        <tutor:apellido>Morales</tutor:apellido>
+        <tutor:matricula>20-003-1553</tutor:matricula>
+        <tutor:promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.4</tutor:promedio>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#base_de_datos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#base_de_datos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#computacion_evolutiva -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_evolutiva">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#inteligencia_artificial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#computacion_movil -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_movil">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#diseño_de_experimentos_en_ingenieria_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_experimentos_en_ingenieria_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#metodologia_de_la_investigacion"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#metricas_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#diseño_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#especialidad_en_base_de_datos_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_en_base_de_datos_2">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#estructura_de_datos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#estructura_de_datos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#gestion_tecnologica -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#gestion_tecnologica">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#ingenieria_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#ingenieria_de_software"/>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#inteligencia_artificial -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_artificial">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#inteligencia_de_negocios -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_de_negocios">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#especialidad_en_base_de_datos_2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                        <owl:someValuesFrom rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#juan -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#juan">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <tutor:interesadoEn rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+        <tutor:noHaAprobado rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:noHaAprobado rdf:resource="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+        <tutor:apellido>Torres</tutor:apellido>
+        <tutor:matricula>19-003-6771</tutor:matricula>
+        <tutor:promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.7</tutor:promedio>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#jupiter -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#jupiter">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Tutor"/>
+        <tutor:apellido>Castillo</tutor:apellido>
+        <tutor:numEmpleado rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40388</tutor:numEmpleado>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#mapeo_objeto_relacional -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#mapeo_objeto_relacional">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#xml_2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#mariana -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#mariana">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+        <tutor:interesadoEn rdf:resource="http://www.uacm.mx/ontologia/tutor#inteligencia_artificial"/>
+        <tutor:interesadoEn rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_web"/>
+        <tutor:apellido>Garcia</tutor:apellido>
+        <tutor:matricula>17-003-2222</tutor:matricula>
+        <tutor:promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.4</tutor:promedio>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#matematicas_discretas -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#matematicas_discretas">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                        <owl:someValuesFrom rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#metodologia_de_la_investigacion -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#metodologia_de_la_investigacion">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                        <owl:someValuesFrom rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#metricas_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#metricas_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#programacion_de_sistemas -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_de_sistemas">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                        <owl:someValuesFrom rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#programacion_web -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_web">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#redes_de_computadoras -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#redes_de_computadoras">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#redes_neuronales -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#redes_neuronales">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#inteligencia_artificial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#roma -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#roma">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+        <tutor:aprobo rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_embebidos"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#diseño_de_experimentos_en_ingenieria_de_software"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#metricas_de_software"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#redes_de_computadoras"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_en_tiempo_real"/>
+        <tutor:inscribe rdf:resource="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+        <tutor:interesadoEn rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+        <tutor:noHaAprobado rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:noHaAprobado rdf:resource="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+        <tutor:pertenece rdf:resource="http://www.uacm.mx/ontologia/tutor#ingenieria_de_software"/>
+        <tutor:apellido>Negrete</tutor:apellido>
+        <tutor:promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.6</tutor:promedio>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_1">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Impar"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_10">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Par"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_2"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#diseño_de_experimentos_en_ingenieria_de_software"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#gestion_tecnologica"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_2">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Par"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_3">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Impar"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_4">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Par"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_5">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Impar"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_6">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Par"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_de_sistemas"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_web"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_7">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Impar"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#diseño_de_software"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#metodologia_de_la_investigacion"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#tecnicas_de_pruebas_de_software"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_8">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Par"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#redes_de_computadoras"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#semestre_9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_9">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Impar"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#metricas_de_software"/>
+        <tutor:tiene rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_distribuidos"/>
+        <tutor:numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</tutor:numMaxMaterias>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#sistemas_distribuidos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_distribuidos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#redes_de_computadoras"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#sistemas_embebidos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_embebidos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <rdf:type>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                        <owl:someValuesFrom rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#sistemas_en_tiempo_real -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_en_tiempo_real">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#sistemas_embebidos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#sistemas_operativos -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_operativos">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#tecnicas_de_pruebas_de_software -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#tecnicas_de_pruebas_de_software">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Obligatoria"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#xml_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#xml_1">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uacm.mx/ontologia/tutor#xml_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uacm.mx/ontologia/tutor#xml_2">
+        <rdf:type rdf:resource="http://www.uacm.mx/ontologia/tutor#Optativa"/>
+        <tutor:tienePrerequisito rdf:resource="http://www.uacm.mx/ontologia/tutor#xml_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#Materia"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#Persona"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#Semestre"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_base_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#alexa"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#aurora"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_evolutiva"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_movil"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_experimentos_en_ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_en_base_de_datos_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#gestion_tecnologica"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_artificial"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_de_negocios"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#juan"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#jupiter"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#mapeo_objeto_relacional"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#mariana"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#metodologia_de_la_investigacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#metricas_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_de_sistemas"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_web"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#redes_de_computadoras"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#redes_neuronales"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#roma"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_10"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_3"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_4"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_5"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_6"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_7"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_8"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_9"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_distribuidos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_embebidos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_en_tiempo_real"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#tecnicas_de_pruebas_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#xml_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#xml_2"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_base_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#alexa"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#aurora"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_evolutiva"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_movil"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_experimentos_en_ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_en_base_de_datos_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#gestion_tecnologica"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_artificial"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_de_negocios"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#juan"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#jupiter"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#mapeo_objeto_relacional"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#metodologia_de_la_investigacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#metricas_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_de_sistemas"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_web"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#redes_de_computadoras"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#redes_neuronales"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#roma"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_10"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_3"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_4"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_5"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_6"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_7"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_8"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_9"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_distribuidos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_embebidos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_en_tiempo_real"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#tecnicas_de_pruebas_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#xml_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#xml_2"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_base_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#administracion_de_proyectos_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#alexa"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_algoritmos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_de_requisitos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#analisis_y_modelamiento_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_computadoras"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#arquitectura_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#aseguramiento_de_la_calidad_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#aurora"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#base_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_evolutiva"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#computacion_movil"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#construccion_y_evolucion_del_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_experimentos_en_ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#diseño_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_de_base_de_datos_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#especialidad_en_base_de_datos_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#estructura_de_datos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#gestion_tecnologica"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_artificial"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#inteligencia_de_negocios"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_ingenieria_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#introduccion_a_la_programacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#jupiter"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#lenguajes_de_programacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#mapeo_objeto_relacional"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#matematicas_discretas"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#metodologia_de_la_investigacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#metricas_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#normatividad_y_legislacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_de_sistemas"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_orientada_a_objetos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#programacion_web"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#redes_de_computadoras"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#redes_neuronales"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#roma"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_10"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_2"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_3"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_4"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_5"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_6"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_7"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_8"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#semestre_9"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_distribuidos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_embebidos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_en_tiempo_real"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#sistemas_operativos"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#tecnicas_de_pruebas_de_software"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#teoria_de_la_computacion"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#xml_1"/>
+            <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor#xml_2"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor/a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor/m">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor/p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.uacm.mx/ontologia/tutor/prom">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#interesadoEn"/>
+                                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                                <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#aprobo"/>
+                                                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#puedeCursar"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#interesadoEn"/>
+                                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                                <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#noHaAprobado"/>
+                                                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#noPuedeCursar"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#Materia"/>
+                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#interesadoEn"/>
+                                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                                <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#noHaAprobado"/>
+                                                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#noSeRecomienda"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#Alumno"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#promedio"/>
+                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/prom"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://www.uacm.mx/ontologia/tutor/prom"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#aprobo"/>
+                                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                                <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#tienePrerequisito"/>
+                                                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#interesadoEn"/>
+                                                                <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                                                                <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.uacm.mx/ontologia/tutor#seRecomienda"/>
+                        <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                        <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
