@@ -3,7 +3,7 @@ import streamlit as st
 from owlready2 import get_ontology, sync_reasoner_pellet
 
 # Nombre de tu archivo ontológico
-ARCHIVO_ONTOLOGIA = "PracticaOntologia.rdf"
+ARCHIVO_ONTOLOGIA = "CopiaOntologia.rdf"
 
 @st.cache_resource
 def obtener_instancia_ontologia():

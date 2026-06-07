@@ -99,23 +99,38 @@ def obtener_materias_disponibles(onto, alumno, semestre_tipo):
     return materias_disponibles
 
 
-def registrar_interes_materia(onto, alumno, nombre_materia_instancia):
+def guardar_interes_permanente(onto, alumno_instancia, materia_instancia, ruta_archivo="PracticaOntologia.rdf"):
     """
-    Vincula dinámicamente un interés del alumno usando la propiedad 'interesadoEn'.
+    Agrega una materia a los intereses del alumno y guarda el resultado 
+    directamente en el archivo físico RDF/XML para que sea permanente.
     """
     try:
-        materia_obj = onto[nombre_materia_instancia]
-        if materia_obj:
-            # Añadir a la lista de intereses de la Object Property
-            if hasattr(alumno, "interesadoEn"):
-                if materia_obj not in alumno.interesadoEn:
-                    alumno.interesadoEn.append(materia_obj)
-            else:
-                alumno.interesadoEn = [materia_obj]
-            return True, f"✨ Se ha registrado tu interés en la materia: {materia_obj.name.replace('_', ' ').title()}"
-        return False, "No se encontró la materia seleccionada."
+        # 1. Validar que la materia no esté ya en la lista para evitar duplicados
+        if materia_instancia in alumno_instancia.interesadoEn:
+            return {"resultado": "advertencia", "mensaje": f"El alumno ya tiene registrado interés en {materia_instancia.name}."}
+        
+        # 2. Modificar el grafo en memoria ram
+        alumno_instancia.interesadoEn.append(materia_instancia)
+        
+        # 3. CRUCIAL: Guardar los cambios físicamente en el archivo de la ontología
+        # Usamos el formato rdfxml que es el que lee tu ontologia_manager.py
+        onto.save(file=ruta_archivo, format="rdfxml")
+        
+        # 4. Forzar al razonador a actualizarse con el nuevo dato grabado en disco
+        from owlready2 import sync_reasoner_pellet
+        with onto:
+            sync_reasoner_pellet(infer_property_values=True)
+            
+        return {
+            "resultado": "exito", 
+            "mensaje": f"✅ ¡Éxito! Interés en '{materia_instancia.name.replace('_', ' ').title()}' guardado permanentemente en el archivo de la ontología."
+        }
+        
     except Exception as e:
-        return False, f"Error al guardar el interés: {str(e)}"
+        return {
+            "resultado": "error", 
+            "mensaje": f"❌ Error crítico al escribir en el archivo RDF: {str(e)}"
+        }
 
 def obtener_materias_recomendadas(onto, alumno):
     """

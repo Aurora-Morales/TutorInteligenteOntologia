@@ -210,48 +210,113 @@ else:
             st.warning("No se encontraron materias disponibles para este periodo.")
 
     # ---------------------------------------------------------
-    # TAB 3: REGISTRO DE INTERESES DEL ALUMNO 
+    # TAB 3: REGISTRO DE INTERESES DEL ALUMNO (SOLUCIÓN DE PERSISTENCIA)
     # ---------------------------------------------------------
     with tab3:
-        st.header("🎯 Registro de Intereses Académicos")
-        st.write("Selecciona una asignatura que te llame la atención. El tutor auditará los grafos de la ontología para indicarte si cumples con las condiciones lógicas para cursarla hoy mismo.")
-        
-        # Obtener todas las materias existentes en el archivo RDF
-        todas_las_materias = sorted([m.name for m in onto.Materia.instances()])
-        opciones_combo = {m: m.replace("_", " ").title() for m in todas_las_materias}
-        
-        materia_seleccionada_id = st.selectbox(
-            "Selecciona la materia de tu interés:",
-            options=list(opciones_combo.keys()),
-            format_func=lambda x: opciones_combo[x],
-            key="sb_interes_nuevo"
-        )
-        
-        # === AUDITORÍA EN TIEMPO REAL ===
-        analisis = analizar_materia_interes(onto, alumno_activo, materia_seleccionada_id)
-        
-        if analisis["viable"]:
-            st.success(analisis["motivo"])
-        else:
-            st.warning(analisis["motivo"])
-            
-        # Botón para registrar formalmente el interés
-        if st.button("Registrar Interés en mi Expediente"):
-            exito, mensaje_interes = registrar_interes_materia(onto, alumno_activo, materia_seleccionada_id)
-            if exito:
-                st.success(mensaje_interes)
-                st.rerun() # Recargar la app para refrescar el listado de abajo
-            else:
-                st.error(mensaje_interes)
+        st.subheader("🎯 Registrar Nuevo Interés Académico")
+        st.write("Registra tus aspiraciones para que queden grabadas directamente en tu expediente académico de la ontología.")
+    
+        todas_materias = list(onto.Materia.instances())
+        nombres_materias = [m.name.replace("_", " ").title() for m in todas_materias]
+    
+        materia_seleccionada_nombre = st.selectbox("Selecciona una materia que te interese:", nombres_materias, key="sb_intereses")
+    
+        if st.button("Guardar Interés de Forma Permanente"):
+            try:
+                # 1. Obtener los objetos correspondientes
+                idx = nombres_materias.index(materia_seleccionada_nombre)
+                materia_seleccionada_instancia = todas_materias[idx]
                 
-        # Mostrar los intereses actuales guardados
-        st.subheader("Tus Intereses Registrados Actuales")
+                # 2. OBTENER EL NAMESPACE ESTRICTO DE LA ONTOLOGÍA (#)
+                tutor_ns = onto.get_namespace("http://www.uacm.mx/ontologia/tutor#")
+                
+                # Verificar si ya existe el interés en el arreglo
+                if materia_seleccionada_instancia not in alumno_activo.interesadoEn:
+                    
+                    # 3. Insertar la relación usando el Namespace explícito
+                    alumno_activo.interesadoEn.append(materia_seleccionada_instancia)
+                    
+                    # 4. Sincronizar el Razonador Pellet en memoria
+                    from owlready2 import sync_reasoner_pellet
+                    with onto:
+                        sync_reasoner_pellet(infer_property_values=True)
+                    
+                    # 5. FORZAR GUARDADO DINÁMICO EN EL ARCHIVO DE TRABAJO
+                    # Importamos el nombre exacto de tu archivo para no alterar otros por accidente
+                    from ontologia_manager import ARCHIVO_ONTOLOGIA
+                    import os
+                    ruta_absoluta = os.path.abspath(ARCHIVO_ONTOLOGIA)
+                    
+                    # Guardamos la ontología sobreescribiendo el archivo activo
+                    onto.save(file=ruta_absoluta, format="rdfxml")
+                    
+                    st.success(f"✅ ¡Guardado con éxito! Se modificó el archivo físico en: `{ARCHIVO_ONTOLOGIA}`")
+                    
+                    # 6. LIMPIAR EL CACHÉ DE RESOURCE (¡Esto soluciona que no se viera en la web!)
+                    # Al borrar la caché, la app se ve obligada a re-leer el archivo modificado del disco.
+                    st.cache_resource.clear()
+                    
+                    # 7. Recargamos la interfaz gráfica
+                    st.rerun()
+                else:
+                    st.warning(f"La materia '{materia_seleccionada_nombre}' ya se encuentra registrada en tus intereses.")
+                    
+            except Exception as e:
+                st.error(f"Error crítico al guardar en el archivo RDF: {str(e)}")
+
+        # ---------------------------------------------------------
+        # BLOQUE VISUAL OPTIMIZADO: EL TUTOR SEMÁNTICO EVALÚA TU EXPEDIENTE
+        # ---------------------------------------------------------
+        st.markdown("---")
+        st.subheader("📋 Diagnóstico de tus Intereses Académicos")
+        
         if hasattr(alumno_activo, "interesadoEn") and alumno_activo.interesadoEn:
-            intereses_actuales = [m.name.replace("_", " ").title() for m in alumno_activo.interesadoEn]
-            for i in intereses_actuales:
-                st.markdown(f"- **{i}**")
+            for materia in alumno_activo.interesadoEn:
+                nombre_bonito = materia.name.replace("_", " ").title()
+                
+                # ---------------------------------------------------------
+                # VALIDACIÓN 1: ¿YA LA CURSÓ Y APROBÓ?
+                # (Buscamos si la materia ya está en su propiedad 'aprobo' o similar)
+                # ---------------------------------------------------------
+                ya_aprobo = False
+                if hasattr(alumno_activo, "aprobo"):
+                    # Owlready2 maneja las relaciones como listas o conjuntos
+                    if materia in alumno_activo.aprobo:
+                        ya_aprobo = True
+                        
+                # ---------------------------------------------------------
+                # VALIDACIÓN 2: ¿LA ESTÁ CURSANDO ACTUALMENTE?
+                # (Suponiendo que tienes una propiedad llamada 'cursando')
+                # ---------------------------------------------------------
+                esta_cursando = False
+                if hasattr(alumno_activo, "cursando"):
+                    if materia in alumno_activo.cursando:
+                        esta_cursando = True
+                
+                # ---------------------------------------------------------
+                # CAPAS DE FILTRADO DEL TUTOR
+                # ---------------------------------------------------------
+                if ya_aprobo:
+                    st.warning(f"⚠️ **{nombre_bonito}** - Ya has cursado y aprobado esta asignatura. No es necesario volver a inscribirla.")
+                
+                elif esta_cursando:
+                    st.info(f"⏳ **{nombre_bonito}** - Actualmente estás cursando esta materia en el periodo activo.")
+                
+                # Si no la ha cursado ni aprobado, evaluamos las reglas SWRL del razonador:
+                else:
+                    # REGLA SWRL 1: El razonador dedujo que NO PUEDE CURSARLA por prerrequisitos
+                    if hasattr(alumno_activo, "noPuedeCursar") and materia in alumno_activo.noPuedeCursar:
+                        st.error(f"❌ **{nombre_bonito}** - No es viable. Tienes prerrequisitos obligatorios pendientes de aprobar.")
+                    
+                    # REGLA SWRL 2: El razonador dedujo que SÍ PUEDE CURSARLA
+                    elif hasattr(alumno_activo, "puedeCursar") and materia in alumno_activo.puedeCursar:
+                        st.success(f"✅ **{nombre_bonito}** - ¡Totalmente Viable! Cumples con la seriación requerida para inscribirla.")
+                    
+                    # Estado por defecto
+                    else:
+                        st.info(f"🔍 **{nombre_bonito}** - Registrada (Pendiente de análisis por el razonador).")
         else:
-            st.info("Aún no has guardado intereses en tu expediente.")
+            st.info("Aún no tienes materias registradas en tu lista de intereses.")
     # ---------------------------------------------------------
     # TAB 4: MAPA CURRICULAR Y PRERREQUISITOS
     # ---------------------------------------------------------

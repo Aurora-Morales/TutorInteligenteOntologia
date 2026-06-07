@@ -3,7 +3,7 @@ Este proyecto representa a un tutor virtual basado en una ontología desarrollad
 
 ---
 ## Requisitos de ejecución
-1. Tener instalado **Python**
+1. Tener instalado **Python3**
 2. Tener instalado **Streamlit**
 3. Tener instalado **Pandas**
 4. Tener instalado **Owlready2**
@@ -50,7 +50,7 @@ Actualizar el sistema e instalar Python, el gestor pip, el entorno virtual y Jav
 
 **source ./venv/bin/activate**
 
-6. Instalar las librerías requeridas dentro del entorno
+6. Instalar las bibliotecas requeridas dentro del entorno
 
 **pip install --upgrade pip**
 
@@ -88,3 +88,13 @@ Actualizar el sistema e instalar Python, el gestor pip, el entorno virtual y Jav
 5. Ejecutar tu tutor inteligente
 
 **streamlit run main.py**
+
+# Navegación de la página
+
+En la barra lateral izquierda se encuantra un campo para buscar a un alumno por nombre o matrícula, por ejemplo: aurora con matricula de 20-003-1553, alexa, mariana, roma o juan.
+
+Al precionar "Enter" aparecera la información referente al alumno buscado. 
+
+Debajo del nombre aparece su promedio. Del lado derecho aparecerá 
+
+

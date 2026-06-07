@@ -1,0 +1,1177 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.uacm.mx/ontologia/tutor"
+         xmlns="http://www.uacm.mx/ontologia/tutor#"
+         xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+         xmlns:swrl2="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+
+<owl:Ontology rdf:about="http://www.uacm.mx/ontologia/tutor">
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontología para un Tutor Inteligente</rdfs:label>
+</owl:Ontology>
+
+<owl:ObjectProperty rdf:about="#aprobo">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+  <owl:propertyDisjointWith rdf:resource="#noHaAprobado"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#noHaAprobado">
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#inscribe">
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#interesadoEn">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#noPuedeCursar">
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#noSeRecomienda">
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#orienta">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Tutor"/>
+  <rdfs:range rdf:resource="#Alumno"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#pertenece">
+  <rdfs:domain rdf:resource="#Alumno"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#puedeCursar">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#quiereCursar">
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#seRecomienda">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tiene">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Semestre"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tienePrerequisito">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Materia"/>
+  <rdfs:range rdf:resource="#Materia"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#apellido">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Persona"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#creditos">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Materia"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#matricula">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#numEmpleado">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Tutor"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#numMaxMaterias">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Semestre"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#promedio">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Alumno"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+
+<owl:Class rdf:about="#Alumno">
+  <rdfs:subClassOf rdf:resource="#Persona"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#inscribe"/>
+      <owl:onClass rdf:resource="#Optativa"/>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#inscribe"/>
+      <owl:onClass rdf:resource="#Materia"/>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">9</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:disjointWith rdf:resource="#Tutor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Materia"/>
+
+<owl:Class rdf:about="#Tutor">
+  <rdfs:subClassOf rdf:resource="#Persona"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Semestre"/>
+
+<owl:Class rdf:about="#Persona"/>
+
+<owl:Class rdf:about="#Optativa">
+  <rdfs:subClassOf rdf:resource="#Materia"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Impar">
+  <rdfs:subClassOf rdf:resource="#Semestre"/>
+  <owl:disjointWith rdf:resource="#Par"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Par">
+  <rdfs:subClassOf rdf:resource="#Semestre"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Obligatoria">
+  <rdfs:subClassOf rdf:resource="#Materia"/>
+  <owl:disjointWith rdf:resource="#Optativa"/>
+</owl:Class>
+
+<owl:Class rdf:about="#sinPrerequisitos">
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Materia"/>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#tienePrerequisito"/>
+              <owl:someValuesFrom rdf:resource="#Materia"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+  <rdfs:subClassOf rdf:resource="#Materia"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#administracion_de_base_de_datos">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#base_de_datos"/>
+  <tienePrerequisito rdf:resource="#especialidad_de_base_de_datos_1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#base_de_datos">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#estructura_de_datos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#especialidad_de_base_de_datos_1">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#base_de_datos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#administracion_de_proyectos_1">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#arquitectura_de_software"/>
+  <tienePrerequisito rdf:resource="#normatividad_y_legislacion"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arquitectura_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#diseño_de_software"/>
+  <tienePrerequisito rdf:resource="#lenguajes_de_programacion"/>
+  <tienePrerequisito rdf:resource="#tecnicas_de_pruebas_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#normatividad_y_legislacion">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#aseguramiento_de_la_calidad_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#administracion_de_proyectos_2">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#administracion_de_proyectos_1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#alexa">
+  <rdf:type rdf:resource="#Alumno"/>
+  <aprobo rdf:resource="#base_de_datos"/>
+  <aprobo rdf:resource="#construccion_y_evolucion_del_software"/>
+  <inscribe rdf:resource="#administracion_de_base_de_datos"/>
+  <inscribe rdf:resource="#administracion_de_proyectos_2"/>
+  <inscribe rdf:resource="#analisis_de_algoritmos"/>
+  <inscribe rdf:resource="#arquitectura_de_computadoras"/>
+  <inscribe rdf:resource="#aseguramiento_de_la_calidad_de_software"/>
+  <inscribe rdf:resource="#computacion_movil"/>
+  <inscribe rdf:resource="#estructura_de_datos"/>
+  <inscribe rdf:resource="#gestion_tecnologica"/>
+  <promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</promedio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#construccion_y_evolucion_del_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#estructura_de_datos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#analisis_de_algoritmos">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#estructura_de_datos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arquitectura_de_computadoras">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#estructura_de_datos"/>
+  <tienePrerequisito rdf:resource="#programacion_de_sistemas"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#aseguramiento_de_la_calidad_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#analisis_de_requisitos"/>
+  <tienePrerequisito rdf:resource="#construccion_y_evolucion_del_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#computacion_movil">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#arquitectura_de_software"/>
+  <tienePrerequisito rdf:resource="#introduccion_a_la_programacion"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#estructura_de_datos">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#programacion_orientada_a_objetos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#gestion_tecnologica">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#arquitectura_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#analisis_de_requisitos">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#introduccion_a_la_ingenieria_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#introduccion_a_la_ingenieria_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#introduccion_a_la_programacion"/>
+  <tienePrerequisito rdf:resource="#matematicas_discretas"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#analisis_y_modelamiento_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#introduccion_a_la_ingenieria_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#programacion_de_sistemas">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#arquitectura_de_computadoras"/>
+  <tienePrerequisito rdf:resource="#construccion_y_evolucion_del_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#diseño_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#analisis_de_algoritmos"/>
+  <tienePrerequisito rdf:resource="#analisis_y_modelamiento_de_software"/>
+  <tienePrerequisito rdf:resource="#lenguajes_de_programacion"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lenguajes_de_programacion">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#construccion_y_evolucion_del_software"/>
+  <tienePrerequisito rdf:resource="#teoria_de_la_computacion"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#tecnicas_de_pruebas_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#analisis_y_modelamiento_de_software"/>
+  <tienePrerequisito rdf:resource="#aseguramiento_de_la_calidad_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#aurora">
+  <rdf:type rdf:resource="#Alumno"/>
+  <aprobo rdf:resource="#base_de_datos"/>
+  <aprobo rdf:resource="#construccion_y_evolucion_del_software"/>
+  <inscribe rdf:resource="#administracion_de_base_de_datos"/>
+  <inscribe rdf:resource="#administracion_de_proyectos_1"/>
+  <inscribe rdf:resource="#analisis_de_requisitos"/>
+  <interesadoEn rdf:resource="#programacion_web"/>
+  <puedeCursar rdf:resource="#programacion_web"/>
+  <seRecomienda rdf:resource="#programacion_web"/>
+  <apellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Morales</apellido>
+  <matricula rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20-003-1553</matricula>
+  <promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.4</promedio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#programacion_web">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#base_de_datos"/>
+  <tienePrerequisito rdf:resource="#construccion_y_evolucion_del_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#computacion_evolutiva">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#inteligencia_artificial"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#inteligencia_artificial">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#analisis_de_algoritmos"/>
+  <tienePrerequisito rdf:resource="#estructura_de_datos"/>
+  <tienePrerequisito rdf:resource="#introduccion_a_la_programacion"/>
+  <tienePrerequisito rdf:resource="#programacion_orientada_a_objetos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#introduccion_a_la_programacion">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <rdf:type rdf:resource="#sinPrerequisitos"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#tienePrerequisito"/>
+          <owl:someValuesFrom rdf:resource="#Materia"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#diseño_de_experimentos_en_ingenieria_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#metodologia_de_la_investigacion"/>
+  <tienePrerequisito rdf:resource="#metricas_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#metodologia_de_la_investigacion">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <rdf:type rdf:resource="#sinPrerequisitos"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#tienePrerequisito"/>
+          <owl:someValuesFrom rdf:resource="#Materia"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#metricas_de_software">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#arquitectura_de_software"/>
+  <tienePrerequisito rdf:resource="#aseguramiento_de_la_calidad_de_software"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#especialidad_en_base_de_datos_2">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#base_de_datos"/>
+  <tienePrerequisito rdf:resource="#especialidad_de_base_de_datos_1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#programacion_orientada_a_objetos">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <rdf:type rdf:resource="#sinPrerequisitos"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#tienePrerequisito"/>
+          <owl:someValuesFrom rdf:resource="#Materia"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#inteligencia_de_negocios">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#base_de_datos"/>
+  <tienePrerequisito rdf:resource="#especialidad_de_base_de_datos_1"/>
+  <tienePrerequisito rdf:resource="#especialidad_en_base_de_datos_2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#matematicas_discretas">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <rdf:type rdf:resource="#sinPrerequisitos"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#tienePrerequisito"/>
+          <owl:someValuesFrom rdf:resource="#Materia"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#juan">
+  <rdf:type rdf:resource="#Alumno"/>
+  <aprobo rdf:resource="#matematicas_discretas"/>
+  <aprobo rdf:resource="#programacion_orientada_a_objetos"/>
+  <interesadoEn rdf:resource="#sistemas_operativos"/>
+  <noHaAprobado rdf:resource="#estructura_de_datos"/>
+  <noSeRecomienda rdf:resource="#sistemas_operativos"/>
+  <noPuedeCursar rdf:resource="#sistemas_operativos"/>
+  <interesadoEn rdf:resource="#programacion_orientada_a_objetos"/>
+  <apellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Torres</apellido>
+  <matricula rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19-003-6771</matricula>
+  <promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.7</promedio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sistemas_operativos">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#construccion_y_evolucion_del_software"/>
+  <tienePrerequisito rdf:resource="#estructura_de_datos"/>
+  <tienePrerequisito rdf:resource="#teoria_de_la_computacion"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#jupiter">
+  <rdf:type rdf:resource="#Tutor"/>
+  <apellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Castillo</apellido>
+  <numEmpleado rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40388</numEmpleado>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#teoria_de_la_computacion">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#estructura_de_datos"/>
+  <tienePrerequisito rdf:resource="#matematicas_discretas"/>
+  <tienePrerequisito rdf:resource="#programacion_orientada_a_objetos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#mapeo_objeto_relacional">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#xml_2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#xml_2">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#xml_1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#mariana">
+  <rdf:type rdf:resource="#Alumno"/>
+  <aprobo rdf:resource="#analisis_de_algoritmos"/>
+  <aprobo rdf:resource="#base_de_datos"/>
+  <aprobo rdf:resource="#estructura_de_datos"/>
+  <aprobo rdf:resource="#introduccion_a_la_programacion"/>
+  <aprobo rdf:resource="#programacion_orientada_a_objetos"/>
+  <interesadoEn rdf:resource="#inteligencia_artificial"/>
+  <interesadoEn rdf:resource="#programacion_web"/>
+  <puedeCursar rdf:resource="#inteligencia_artificial"/>
+  <puedeCursar rdf:resource="#programacion_web"/>
+  <seRecomienda rdf:resource="#inteligencia_artificial"/>
+  <seRecomienda rdf:resource="#programacion_web"/>
+  <apellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Garcia</apellido>
+  <matricula rdf:datatype="http://www.w3.org/2001/XMLSchema#string">17-003-2222</matricula>
+  <promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.4</promedio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#redes_de_computadoras">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#arquitectura_de_computadoras"/>
+  <tienePrerequisito rdf:resource="#matematicas_discretas"/>
+  <tienePrerequisito rdf:resource="#sistemas_operativos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#redes_neuronales">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#inteligencia_artificial"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#roma">
+  <rdf:type rdf:resource="#Alumno"/>
+  <aprobo rdf:resource="#base_de_datos"/>
+  <aprobo rdf:resource="#construccion_y_evolucion_del_software"/>
+  <aprobo rdf:resource="#introduccion_a_la_programacion"/>
+  <aprobo rdf:resource="#matematicas_discretas"/>
+  <aprobo rdf:resource="#programacion_orientada_a_objetos"/>
+  <aprobo rdf:resource="#sistemas_embebidos"/>
+  <inscribe rdf:resource="#arquitectura_de_computadoras"/>
+  <inscribe rdf:resource="#aseguramiento_de_la_calidad_de_software"/>
+  <inscribe rdf:resource="#diseño_de_experimentos_en_ingenieria_de_software"/>
+  <inscribe rdf:resource="#lenguajes_de_programacion"/>
+  <inscribe rdf:resource="#metricas_de_software"/>
+  <inscribe rdf:resource="#normatividad_y_legislacion"/>
+  <inscribe rdf:resource="#redes_de_computadoras"/>
+  <inscribe rdf:resource="#sistemas_en_tiempo_real"/>
+  <inscribe rdf:resource="#teoria_de_la_computacion"/>
+  <interesadoEn rdf:resource="#sistemas_operativos"/>
+  <noHaAprobado rdf:resource="#estructura_de_datos"/>
+  <noHaAprobado rdf:resource="#teoria_de_la_computacion"/>
+  <noPuedeCursar rdf:resource="#sistemas_operativos"/>
+  <noSeRecomienda rdf:resource="#sistemas_operativos"/>
+  <pertenece rdf:resource="#ingenieria_de_software"/>
+  <puedeCursar rdf:resource="#sistemas_operativos"/>
+  <seRecomienda rdf:resource="#sistemas_operativos"/>
+  <apellido rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Negrete</apellido>
+  <promedio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.6</promedio>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sistemas_embebidos">
+  <rdf:type rdf:resource="#Optativa"/>
+  <rdf:type rdf:resource="#sinPrerequisitos"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#tienePrerequisito"/>
+          <owl:someValuesFrom rdf:resource="#Materia"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sistemas_en_tiempo_real">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#sistemas_embebidos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_1">
+  <rdf:type rdf:resource="#Impar"/>
+  <tiene rdf:resource="#introduccion_a_la_programacion"/>
+  <tiene rdf:resource="#matematicas_discretas"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_10">
+  <rdf:type rdf:resource="#Par"/>
+  <tiene rdf:resource="#administracion_de_proyectos_2"/>
+  <tiene rdf:resource="#diseño_de_experimentos_en_ingenieria_de_software"/>
+  <tiene rdf:resource="#gestion_tecnologica"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_2">
+  <rdf:type rdf:resource="#Par"/>
+  <tiene rdf:resource="#introduccion_a_la_ingenieria_de_software"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_3">
+  <rdf:type rdf:resource="#Impar"/>
+  <tiene rdf:resource="#programacion_orientada_a_objetos"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_4">
+  <rdf:type rdf:resource="#Par"/>
+  <tiene rdf:resource="#estructura_de_datos"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_5">
+  <rdf:type rdf:resource="#Impar"/>
+  <tiene rdf:resource="#analisis_de_algoritmos"/>
+  <tiene rdf:resource="#analisis_de_requisitos"/>
+  <tiene rdf:resource="#base_de_datos"/>
+  <tiene rdf:resource="#construccion_y_evolucion_del_software"/>
+  <tiene rdf:resource="#teoria_de_la_computacion"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_6">
+  <rdf:type rdf:resource="#Par"/>
+  <tiene rdf:resource="#analisis_y_modelamiento_de_software"/>
+  <tiene rdf:resource="#aseguramiento_de_la_calidad_de_software"/>
+  <tiene rdf:resource="#programacion_de_sistemas"/>
+  <tiene rdf:resource="#programacion_web"/>
+  <tiene rdf:resource="#sistemas_operativos"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_7">
+  <rdf:type rdf:resource="#Impar"/>
+  <tiene rdf:resource="#arquitectura_de_computadoras"/>
+  <tiene rdf:resource="#diseño_de_software"/>
+  <tiene rdf:resource="#lenguajes_de_programacion"/>
+  <tiene rdf:resource="#metodologia_de_la_investigacion"/>
+  <tiene rdf:resource="#tecnicas_de_pruebas_de_software"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_8">
+  <rdf:type rdf:resource="#Par"/>
+  <tiene rdf:resource="#arquitectura_de_software"/>
+  <tiene rdf:resource="#normatividad_y_legislacion"/>
+  <tiene rdf:resource="#redes_de_computadoras"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#semestre_9">
+  <rdf:type rdf:resource="#Impar"/>
+  <tiene rdf:resource="#administracion_de_proyectos_1"/>
+  <tiene rdf:resource="#metricas_de_software"/>
+  <tiene rdf:resource="#sistemas_distribuidos"/>
+  <numMaxMaterias rdf:datatype="http://www.w3.org/2001/XMLSchema#int">9</numMaxMaterias>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#sistemas_distribuidos">
+  <rdf:type rdf:resource="#Obligatoria"/>
+  <tienePrerequisito rdf:resource="#arquitectura_de_computadoras"/>
+  <tienePrerequisito rdf:resource="#redes_de_computadoras"/>
+  <tienePrerequisito rdf:resource="#sistemas_operativos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#xml_1">
+  <rdf:type rdf:resource="#Optativa"/>
+  <tienePrerequisito rdf:resource="#base_de_datos"/>
+  <tienePrerequisito rdf:resource="#programacion_orientada_a_objetos"/>
+</owl:NamedIndividual>
+
+<owl:Thing rdf:about="#ingenieria_de_software">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</owl:Thing>
+
+<swrl:Variable rdf:about="http://www.uacm.mx/ontologia/tutor/a"/>
+
+<swrl:Variable rdf:about="http://www.uacm.mx/ontologia/tutor/m"/>
+
+<swrl:Variable rdf:about="http://www.uacm.mx/ontologia/tutor/p"/>
+
+<swrl:Variable rdf:about="http://www.uacm.mx/ontologia/tutor/prom"/>
+
+<swrl:Imp>
+  <swrl:body>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:ClassAtom>
+          <swrl:classPredicate rdf:resource="#Alumno"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+        </swrl:ClassAtom>
+      </rdf:first>
+      <rdf:rest>
+        <swrl:AtomList>
+          <rdf:first>
+            <swrl:DatavaluedPropertyAtom>
+              <swrl:propertyPredicate rdf:resource="#promedio"/>
+              <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+              <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/prom"/>
+            </swrl:DatavaluedPropertyAtom>
+          </rdf:first>
+          <rdf:rest>
+            <swrl:AtomList>
+              <rdf:first>
+                <swrl:BuiltinAtom>
+                  <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThan"/>
+                  <swrl:arguments>
+                    <rdf:List>
+                      <rdf:first rdf:resource="http://www.uacm.mx/ontologia/tutor/prom"/>
+                      <rdf:rest>
+                        <rdf:List>
+                          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</rdf:first>
+                        </rdf:List>
+                      </rdf:rest>
+                    </rdf:List>
+                  </swrl:arguments>
+                </swrl:BuiltinAtom>
+              </rdf:first>
+              <rdf:rest>
+                <swrl:AtomList>
+                  <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                      <swrl:propertyPredicate rdf:resource="#aprobo"/>
+                      <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                      <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                    </swrl:IndividualPropertyAtom>
+                  </rdf:first>
+                  <rdf:rest>
+                    <swrl:AtomList>
+                      <rdf:first>
+                        <swrl:IndividualPropertyAtom>
+                          <swrl:propertyPredicate rdf:resource="#tienePrerequisito"/>
+                          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                        </swrl:IndividualPropertyAtom>
+                      </rdf:first>
+                      <rdf:rest>
+                        <swrl:AtomList>
+                          <rdf:first>
+                            <swrl:IndividualPropertyAtom>
+                              <swrl:propertyPredicate rdf:resource="#interesadoEn"/>
+                              <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                              <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                            </swrl:IndividualPropertyAtom>
+                          </rdf:first>
+                          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                        </swrl:AtomList>
+                      </rdf:rest>
+                    </swrl:AtomList>
+                  </rdf:rest>
+                </swrl:AtomList>
+              </rdf:rest>
+            </swrl:AtomList>
+          </rdf:rest>
+        </swrl:AtomList>
+      </rdf:rest>
+    </swrl:AtomList>
+  </swrl:body>
+  <swrl:head>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:IndividualPropertyAtom>
+          <swrl:propertyPredicate rdf:resource="#seRecomienda"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+        </swrl:IndividualPropertyAtom>
+      </rdf:first>
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </swrl:AtomList>
+  </swrl:head>
+  <swrl2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl2:isRuleEnabled>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S3</rdfs:label>
+</swrl:Imp>
+
+<swrl:Imp>
+  <swrl:body>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:ClassAtom>
+          <swrl:classPredicate rdf:resource="#Alumno"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+        </swrl:ClassAtom>
+      </rdf:first>
+      <rdf:rest>
+        <swrl:AtomList>
+          <rdf:first>
+            <swrl:ClassAtom>
+              <swrl:classPredicate rdf:resource="#Materia"/>
+              <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+            </swrl:ClassAtom>
+          </rdf:first>
+          <rdf:rest>
+            <swrl:AtomList>
+              <rdf:first>
+                <swrl:IndividualPropertyAtom>
+                  <swrl:propertyPredicate rdf:resource="#interesadoEn"/>
+                  <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                  <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                </swrl:IndividualPropertyAtom>
+              </rdf:first>
+              <rdf:rest>
+                <swrl:AtomList>
+                  <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                      <swrl:propertyPredicate rdf:resource="#tienePrerequisito"/>
+                      <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                      <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                    </swrl:IndividualPropertyAtom>
+                  </rdf:first>
+                  <rdf:rest>
+                    <swrl:AtomList>
+                      <rdf:first>
+                        <swrl:IndividualPropertyAtom>
+                          <swrl:propertyPredicate rdf:resource="#noHaAprobado"/>
+                          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                        </swrl:IndividualPropertyAtom>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </swrl:AtomList>
+                  </rdf:rest>
+                </swrl:AtomList>
+              </rdf:rest>
+            </swrl:AtomList>
+          </rdf:rest>
+        </swrl:AtomList>
+      </rdf:rest>
+    </swrl:AtomList>
+  </swrl:body>
+  <swrl:head>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:IndividualPropertyAtom>
+          <swrl:propertyPredicate rdf:resource="#noSeRecomienda"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+        </swrl:IndividualPropertyAtom>
+      </rdf:first>
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </swrl:AtomList>
+  </swrl:head>
+  <swrl2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl2:isRuleEnabled>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S4</rdfs:label>
+</swrl:Imp>
+
+<swrl:Imp>
+  <swrl:body>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:ClassAtom>
+          <swrl:classPredicate rdf:resource="#Alumno"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+        </swrl:ClassAtom>
+      </rdf:first>
+      <rdf:rest>
+        <swrl:AtomList>
+          <rdf:first>
+            <swrl:ClassAtom>
+              <swrl:classPredicate rdf:resource="#Materia"/>
+              <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+            </swrl:ClassAtom>
+          </rdf:first>
+          <rdf:rest>
+            <swrl:AtomList>
+              <rdf:first>
+                <swrl:IndividualPropertyAtom>
+                  <swrl:propertyPredicate rdf:resource="#interesadoEn"/>
+                  <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                  <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                </swrl:IndividualPropertyAtom>
+              </rdf:first>
+              <rdf:rest>
+                <swrl:AtomList>
+                  <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                      <swrl:propertyPredicate rdf:resource="#tienePrerequisito"/>
+                      <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                      <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                    </swrl:IndividualPropertyAtom>
+                  </rdf:first>
+                  <rdf:rest>
+                    <swrl:AtomList>
+                      <rdf:first>
+                        <swrl:IndividualPropertyAtom>
+                          <swrl:propertyPredicate rdf:resource="#noHaAprobado"/>
+                          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                        </swrl:IndividualPropertyAtom>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </swrl:AtomList>
+                  </rdf:rest>
+                </swrl:AtomList>
+              </rdf:rest>
+            </swrl:AtomList>
+          </rdf:rest>
+        </swrl:AtomList>
+      </rdf:rest>
+    </swrl:AtomList>
+  </swrl:body>
+  <swrl:head>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:IndividualPropertyAtom>
+          <swrl:propertyPredicate rdf:resource="#noPuedeCursar"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+        </swrl:IndividualPropertyAtom>
+      </rdf:first>
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </swrl:AtomList>
+  </swrl:head>
+  <swrl2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl2:isRuleEnabled>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S2</rdfs:label>
+</swrl:Imp>
+
+<swrl:Imp>
+  <swrl:body>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:ClassAtom>
+          <swrl:classPredicate rdf:resource="#Alumno"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+        </swrl:ClassAtom>
+      </rdf:first>
+      <rdf:rest>
+        <swrl:AtomList>
+          <rdf:first>
+            <swrl:ClassAtom>
+              <swrl:classPredicate rdf:resource="#Materia"/>
+              <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+            </swrl:ClassAtom>
+          </rdf:first>
+          <rdf:rest>
+            <swrl:AtomList>
+              <rdf:first>
+                <swrl:IndividualPropertyAtom>
+                  <swrl:propertyPredicate rdf:resource="#interesadoEn"/>
+                  <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                  <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                </swrl:IndividualPropertyAtom>
+              </rdf:first>
+              <rdf:rest>
+                <swrl:AtomList>
+                  <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                      <swrl:propertyPredicate rdf:resource="#tienePrerequisito"/>
+                      <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+                      <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                    </swrl:IndividualPropertyAtom>
+                  </rdf:first>
+                  <rdf:rest>
+                    <swrl:AtomList>
+                      <rdf:first>
+                        <swrl:IndividualPropertyAtom>
+                          <swrl:propertyPredicate rdf:resource="#aprobo"/>
+                          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+                          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/p"/>
+                        </swrl:IndividualPropertyAtom>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </swrl:AtomList>
+                  </rdf:rest>
+                </swrl:AtomList>
+              </rdf:rest>
+            </swrl:AtomList>
+          </rdf:rest>
+        </swrl:AtomList>
+      </rdf:rest>
+    </swrl:AtomList>
+  </swrl:body>
+  <swrl:head>
+    <swrl:AtomList>
+      <rdf:first>
+        <swrl:IndividualPropertyAtom>
+          <swrl:propertyPredicate rdf:resource="#puedeCursar"/>
+          <swrl:argument1 rdf:resource="http://www.uacm.mx/ontologia/tutor/a"/>
+          <swrl:argument2 rdf:resource="http://www.uacm.mx/ontologia/tutor/m"/>
+        </swrl:IndividualPropertyAtom>
+      </rdf:first>
+      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </swrl:AtomList>
+  </swrl:head>
+  <swrl2:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrl2:isRuleEnabled>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S1</rdfs:label>
+</swrl:Imp>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#administracion_de_base_de_datos"/>
+    <rdf:Description rdf:about="#administracion_de_proyectos_1"/>
+    <rdf:Description rdf:about="#administracion_de_proyectos_2"/>
+    <rdf:Description rdf:about="#alexa"/>
+    <rdf:Description rdf:about="#analisis_de_algoritmos"/>
+    <rdf:Description rdf:about="#analisis_de_requisitos"/>
+    <rdf:Description rdf:about="#analisis_y_modelamiento_de_software"/>
+    <rdf:Description rdf:about="#arquitectura_de_computadoras"/>
+    <rdf:Description rdf:about="#arquitectura_de_software"/>
+    <rdf:Description rdf:about="#aseguramiento_de_la_calidad_de_software"/>
+    <rdf:Description rdf:about="#aurora"/>
+    <rdf:Description rdf:about="#base_de_datos"/>
+    <rdf:Description rdf:about="#computacion_evolutiva"/>
+    <rdf:Description rdf:about="#computacion_movil"/>
+    <rdf:Description rdf:about="#construccion_y_evolucion_del_software"/>
+    <rdf:Description rdf:about="#diseño_de_experimentos_en_ingenieria_de_software"/>
+    <rdf:Description rdf:about="#diseño_de_software"/>
+    <rdf:Description rdf:about="#especialidad_de_base_de_datos_1"/>
+    <rdf:Description rdf:about="#especialidad_en_base_de_datos_2"/>
+    <rdf:Description rdf:about="#estructura_de_datos"/>
+    <rdf:Description rdf:about="#gestion_tecnologica"/>
+    <rdf:Description rdf:about="#ingenieria_de_software"/>
+    <rdf:Description rdf:about="#inteligencia_artificial"/>
+    <rdf:Description rdf:about="#inteligencia_de_negocios"/>
+    <rdf:Description rdf:about="#introduccion_a_la_ingenieria_de_software"/>
+    <rdf:Description rdf:about="#introduccion_a_la_programacion"/>
+    <rdf:Description rdf:about="#jupiter"/>
+    <rdf:Description rdf:about="#lenguajes_de_programacion"/>
+    <rdf:Description rdf:about="#mapeo_objeto_relacional"/>
+    <rdf:Description rdf:about="#matematicas_discretas"/>
+    <rdf:Description rdf:about="#metodologia_de_la_investigacion"/>
+    <rdf:Description rdf:about="#metricas_de_software"/>
+    <rdf:Description rdf:about="#normatividad_y_legislacion"/>
+    <rdf:Description rdf:about="#programacion_de_sistemas"/>
+    <rdf:Description rdf:about="#programacion_orientada_a_objetos"/>
+    <rdf:Description rdf:about="#programacion_web"/>
+    <rdf:Description rdf:about="#redes_de_computadoras"/>
+    <rdf:Description rdf:about="#redes_neuronales"/>
+    <rdf:Description rdf:about="#roma"/>
+    <rdf:Description rdf:about="#semestre_1"/>
+    <rdf:Description rdf:about="#semestre_10"/>
+    <rdf:Description rdf:about="#semestre_2"/>
+    <rdf:Description rdf:about="#semestre_3"/>
+    <rdf:Description rdf:about="#semestre_4"/>
+    <rdf:Description rdf:about="#semestre_5"/>
+    <rdf:Description rdf:about="#semestre_6"/>
+    <rdf:Description rdf:about="#semestre_7"/>
+    <rdf:Description rdf:about="#semestre_8"/>
+    <rdf:Description rdf:about="#semestre_9"/>
+    <rdf:Description rdf:about="#sistemas_distribuidos"/>
+    <rdf:Description rdf:about="#sistemas_embebidos"/>
+    <rdf:Description rdf:about="#sistemas_en_tiempo_real"/>
+    <rdf:Description rdf:about="#sistemas_operativos"/>
+    <rdf:Description rdf:about="#tecnicas_de_pruebas_de_software"/>
+    <rdf:Description rdf:about="#teoria_de_la_computacion"/>
+    <rdf:Description rdf:about="#xml_1"/>
+    <rdf:Description rdf:about="#xml_2"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#administracion_de_base_de_datos"/>
+    <rdf:Description rdf:about="#administracion_de_proyectos_1"/>
+    <rdf:Description rdf:about="#administracion_de_proyectos_2"/>
+    <rdf:Description rdf:about="#alexa"/>
+    <rdf:Description rdf:about="#analisis_de_algoritmos"/>
+    <rdf:Description rdf:about="#analisis_de_requisitos"/>
+    <rdf:Description rdf:about="#analisis_y_modelamiento_de_software"/>
+    <rdf:Description rdf:about="#arquitectura_de_computadoras"/>
+    <rdf:Description rdf:about="#arquitectura_de_software"/>
+    <rdf:Description rdf:about="#aseguramiento_de_la_calidad_de_software"/>
+    <rdf:Description rdf:about="#aurora"/>
+    <rdf:Description rdf:about="#base_de_datos"/>
+    <rdf:Description rdf:about="#computacion_evolutiva"/>
+    <rdf:Description rdf:about="#computacion_movil"/>
+    <rdf:Description rdf:about="#construccion_y_evolucion_del_software"/>
+    <rdf:Description rdf:about="#diseño_de_experimentos_en_ingenieria_de_software"/>
+    <rdf:Description rdf:about="#diseño_de_software"/>
+    <rdf:Description rdf:about="#especialidad_de_base_de_datos_1"/>
+    <rdf:Description rdf:about="#especialidad_en_base_de_datos_2"/>
+    <rdf:Description rdf:about="#estructura_de_datos"/>
+    <rdf:Description rdf:about="#gestion_tecnologica"/>
+    <rdf:Description rdf:about="#ingenieria_de_software"/>
+    <rdf:Description rdf:about="#inteligencia_artificial"/>
+    <rdf:Description rdf:about="#inteligencia_de_negocios"/>
+    <rdf:Description rdf:about="#introduccion_a_la_ingenieria_de_software"/>
+    <rdf:Description rdf:about="#introduccion_a_la_programacion"/>
+    <rdf:Description rdf:about="#juan"/>
+    <rdf:Description rdf:about="#jupiter"/>
+    <rdf:Description rdf:about="#lenguajes_de_programacion"/>
+    <rdf:Description rdf:about="#mapeo_objeto_relacional"/>
+    <rdf:Description rdf:about="#matematicas_discretas"/>
+    <rdf:Description rdf:about="#metodologia_de_la_investigacion"/>
+    <rdf:Description rdf:about="#metricas_de_software"/>
+    <rdf:Description rdf:about="#normatividad_y_legislacion"/>
+    <rdf:Description rdf:about="#programacion_de_sistemas"/>
+    <rdf:Description rdf:about="#programacion_orientada_a_objetos"/>
+    <rdf:Description rdf:about="#programacion_web"/>
+    <rdf:Description rdf:about="#redes_de_computadoras"/>
+    <rdf:Description rdf:about="#redes_neuronales"/>
+    <rdf:Description rdf:about="#roma"/>
+    <rdf:Description rdf:about="#semestre_1"/>
+    <rdf:Description rdf:about="#semestre_10"/>
+    <rdf:Description rdf:about="#semestre_2"/>
+    <rdf:Description rdf:about="#semestre_3"/>
+    <rdf:Description rdf:about="#semestre_4"/>
+    <rdf:Description rdf:about="#semestre_5"/>
+    <rdf:Description rdf:about="#semestre_6"/>
+    <rdf:Description rdf:about="#semestre_7"/>
+    <rdf:Description rdf:about="#semestre_8"/>
+    <rdf:Description rdf:about="#semestre_9"/>
+    <rdf:Description rdf:about="#sistemas_distribuidos"/>
+    <rdf:Description rdf:about="#sistemas_embebidos"/>
+    <rdf:Description rdf:about="#sistemas_en_tiempo_real"/>
+    <rdf:Description rdf:about="#sistemas_operativos"/>
+    <rdf:Description rdf:about="#tecnicas_de_pruebas_de_software"/>
+    <rdf:Description rdf:about="#teoria_de_la_computacion"/>
+    <rdf:Description rdf:about="#xml_1"/>
+    <rdf:Description rdf:about="#xml_2"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#administracion_de_base_de_datos"/>
+    <rdf:Description rdf:about="#administracion_de_proyectos_1"/>
+    <rdf:Description rdf:about="#administracion_de_proyectos_2"/>
+    <rdf:Description rdf:about="#alexa"/>
+    <rdf:Description rdf:about="#analisis_de_algoritmos"/>
+    <rdf:Description rdf:about="#analisis_de_requisitos"/>
+    <rdf:Description rdf:about="#analisis_y_modelamiento_de_software"/>
+    <rdf:Description rdf:about="#arquitectura_de_computadoras"/>
+    <rdf:Description rdf:about="#arquitectura_de_software"/>
+    <rdf:Description rdf:about="#aseguramiento_de_la_calidad_de_software"/>
+    <rdf:Description rdf:about="#aurora"/>
+    <rdf:Description rdf:about="#base_de_datos"/>
+    <rdf:Description rdf:about="#computacion_evolutiva"/>
+    <rdf:Description rdf:about="#computacion_movil"/>
+    <rdf:Description rdf:about="#construccion_y_evolucion_del_software"/>
+    <rdf:Description rdf:about="#diseño_de_experimentos_en_ingenieria_de_software"/>
+    <rdf:Description rdf:about="#diseño_de_software"/>
+    <rdf:Description rdf:about="#especialidad_de_base_de_datos_1"/>
+    <rdf:Description rdf:about="#especialidad_en_base_de_datos_2"/>
+    <rdf:Description rdf:about="#estructura_de_datos"/>
+    <rdf:Description rdf:about="#gestion_tecnologica"/>
+    <rdf:Description rdf:about="#ingenieria_de_software"/>
+    <rdf:Description rdf:about="#inteligencia_artificial"/>
+    <rdf:Description rdf:about="#inteligencia_de_negocios"/>
+    <rdf:Description rdf:about="#introduccion_a_la_ingenieria_de_software"/>
+    <rdf:Description rdf:about="#introduccion_a_la_programacion"/>
+    <rdf:Description rdf:about="#juan"/>
+    <rdf:Description rdf:about="#jupiter"/>
+    <rdf:Description rdf:about="#lenguajes_de_programacion"/>
+    <rdf:Description rdf:about="#mapeo_objeto_relacional"/>
+    <rdf:Description rdf:about="#mariana"/>
+    <rdf:Description rdf:about="#matematicas_discretas"/>
+    <rdf:Description rdf:about="#metodologia_de_la_investigacion"/>
+    <rdf:Description rdf:about="#metricas_de_software"/>
+    <rdf:Description rdf:about="#normatividad_y_legislacion"/>
+    <rdf:Description rdf:about="#programacion_de_sistemas"/>
+    <rdf:Description rdf:about="#programacion_orientada_a_objetos"/>
+    <rdf:Description rdf:about="#programacion_web"/>
+    <rdf:Description rdf:about="#redes_de_computadoras"/>
+    <rdf:Description rdf:about="#redes_neuronales"/>
+    <rdf:Description rdf:about="#roma"/>
+    <rdf:Description rdf:about="#semestre_1"/>
+    <rdf:Description rdf:about="#semestre_10"/>
+    <rdf:Description rdf:about="#semestre_2"/>
+    <rdf:Description rdf:about="#semestre_3"/>
+    <rdf:Description rdf:about="#semestre_4"/>
+    <rdf:Description rdf:about="#semestre_5"/>
+    <rdf:Description rdf:about="#semestre_6"/>
+    <rdf:Description rdf:about="#semestre_7"/>
+    <rdf:Description rdf:about="#semestre_8"/>
+    <rdf:Description rdf:about="#semestre_9"/>
+    <rdf:Description rdf:about="#sistemas_distribuidos"/>
+    <rdf:Description rdf:about="#sistemas_embebidos"/>
+    <rdf:Description rdf:about="#sistemas_en_tiempo_real"/>
+    <rdf:Description rdf:about="#sistemas_operativos"/>
+    <rdf:Description rdf:about="#tecnicas_de_pruebas_de_software"/>
+    <rdf:Description rdf:about="#teoria_de_la_computacion"/>
+    <rdf:Description rdf:about="#xml_1"/>
+    <rdf:Description rdf:about="#xml_2"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Materia"/>
+    <rdf:Description rdf:about="#Persona"/>
+    <rdf:Description rdf:about="#Semestre"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>
