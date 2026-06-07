@@ -112,103 +112,118 @@ else:
                 st.info("No se encuentra inscrito en ninguna asignatura en este ciclo.")
 
     # ---------------------------------------------------------
-    # TAB 2: MATERIAS DISPONIBLES SEGÚN EL SEMESTRE
+    # TAB 2: MATERIAS DISPONIBLES (MODIFICADO - RAZONADOR HÍBRIDO + OPTATIVAS)
     # ---------------------------------------------------------
     with tab2:
         st.header("🔮 Planificación de Inscripción Inteligente")
-        st.write("Esta sección ejecuta las reglas de la ontología para evaluar prerrequisitos válidos.")
+        st.write("Esta sección ejecuta las reglas de la ontología y auditorías lógicas para evaluar prerrequisitos válidos.")
         
-        # === NUEVA SECCIÓN: RECOMENDACIONES SWRL ===
-        st.subheader("🎯 Recomendaciones del Tutor Inteligente (Reglas SWRL)")
-        recomendaciones = obtener_materias_recomendadas(onto, alumno_activo)
-        
-        if recomendaciones:
-            st.info("💡 **El Tutor ha calculado recomendaciones personalizadas para ti basándose en las reglas del sistema:**")
-            df_recom = pd.DataFrame(recomendaciones)
-            st.dataframe(df_recom, use_container_width=True, hide_index=True)
-        else:
-            st.markdown("*No se generaron recomendaciones especiales mediante SWRL para este perfil en el estado actual.*")
-        
-        st.divider() # Línea divisoria para separar de las materias comunes por semestre
-        
-        # === SECCIÓN ANTERIOR: MATERIAS POR SEMESTRE (PAR/IMPAR) ===
-        st.subheader("📋 Asignaturas Recomendadas por Tipo de Periodo")
+        # --- EXTRACCIÓN DE PROMEDIO DEL ALUMNO ---
+        promedio_alumno = 0.0
+        if hasattr(alumno_activo, "promedio") and alumno_activo.promedio:
+            promedio_alumno = float(alumno_activo.promedio[0] if isinstance(alumno_activo.promedio, list) else alumno_activo.promedio)
+
+        # === SECCIÓN ANTERIOR INTEGRADA CON AUDITORÍA VISUAL ===
+        st.subheader("📋 Asignaturas Obligatorias por Tipo de Periodo")
         tipo_semestre = st.selectbox(
             "Selecciona el ciclo al que se va a inscribir el alumno:",
             ["Impar", "Par"],
-            help="Filtrará las asignaturas correspondientes a semestres Pares o Impares."
+            help="Filtrará las asignaturas correspondientes a semestres Pares o Impares.",
+            key="sb_ciclo_auditoria"
         )
         
-        materias_permitidas = obtener_materias_disponibles(onto, alumno_activo, tipo_semestre)
-        
-        if materias_permitidas:
-            datos_materias = []
-            for mat in materias_permitidas:
-                tipo_clase = "Materia"
-                if onto.Obligatoria in mat.is_a:
-                    tipo_clase = "Obligatoria"
-                elif onto.Optativa in mat.is_a:
-                    tipo_clase = "Optativa"
-                    
-                datos_materias.append({
-                    "Clave / Instancia": mat.name,
-                    "Nombre Completo": mat.name.replace("_", " ").title(),
-                    "Tipo de Asignatura": tipo_clase
-                })
-                
-            df_permitidas = pd.DataFrame(datos_materias)
-            st.dataframe(df_permitidas, use_container_width=True, hide_index=True)
-            # === NUEVA SECCIÓN: EXPLICADOR SEMÁNTICO ===
-            st.divider()
-            st.subheader("❓ Explicador Semántico de Bloqueos")
-            st.write("¿Hay alguna asignatura que te interese cursar pero no aparece en tu lista de disponibles? El tutor analiza las dependencias lógicas de la ontología para explicarte qué prerrequisitos te hacen falta.")
-        
-            # 1. Obtener todas las materias de la ontología
-            todas_las_materias_exp = sorted([m.name for m in onto.Materia.instances()])
-        
-            # 2. Filtrar para mostrar solo las materias que el alumno NO puede cursar actualmente
-            # (Es decir, quitamos las aprobadas, las que ya está cursando e inscribiendo, y las recomendadas/disponibles)
-            materias_no_disponibles = []
-            for m_name in todas_las_materias_exp:
-                m_obj = onto[m_name]
-            
-                # Verificar si ya la aprobó
-                ya_aprobada = m_obj in alumno_activo.aprobo if hasattr(alumno_activo, "aprobo") else False
-                # Verificar si la inscribe actualmente
-                ya_inscrita = m_obj in alumno_activo.inscribe if hasattr(alumno_activo, "inscribe") else False
-                # Verificar si está en su lista actual de "puedeCursar"
-                esta_permitida = m_obj in materias_permitidas
-            
-                if not ya_aprobada and not ya_inscrita and not esta_permitida:
-                    materias_no_disponibles.append(m_name)
-                
-            if materias_no_disponibles:
-                # Diccionario amigable para el usuario
-                opciones_explicador = {m: m.replace("_", " ").title() for m in materias_no_disponibles}
-            
-                materia_a_explicar = st.selectbox(
-                    "Selecciona una asignatura bloqueada para auditar sus prerrequisitos:",
-                    options=list(opciones_explicador.keys()),
-                    format_func=lambda x: opciones_explicador[x],
-                    key="sb_explicador"
-                )
-            
-                if st.button("🔍 Auditar Dependencias Lógicas"):
-                    # Llamar al servicio que analiza las propiedades ontológicas
-                    prerrequisitos_faltantes = explicar_bloqueo_materia(onto, alumno_activo, materia_a_explicar)
-                
-                    if prerrequisitos_faltantes:
-                        st.warning(f"🔒 **Acceso Restringido:** No es posible inscribirse a *{opciones_explicador[materia_a_explicar]}* debido a que no has cubierto su cadena de seriación académica.")
-                        st.markdown("**Asignaturas prerrequisito pendientes por aprobar:**")
-                        for falta in prerrequisitos_faltantes:
-                            st.markdown(f"- 🟥 *{falta}*")
-                    else:
-                        st.info(f"ℹ️ *{opciones_explicador[materia_a_explicar]}* no tiene prerrequisitos obligatorios directos registrados en la ontología. Su exclusión puede deberse a que corresponde a un ciclo escolar diferente al tipo seleccionado arriba (Par / Impar).")
-            else:
-                st.success("🎉 Todas las asignaturas de la carrera están desbloqueadas o aprobadas para este perfil.")
-        else:
-            st.warning("No se encontraron materias disponibles para este periodo.")
+        # Obtener las materias vinculadas al ciclo
+        materias_del_ciclo = []
+        for semestre_instancia in onto.Semestre.instances():
+            clase_objetivo = onto.Par if tipo_semestre == "Par" else onto.Impar
+            if clase_objetivo in semestre_instancia.is_a:
+                if hasattr(semestre_instancia, "tiene"):
+                    for m in semestre_instancia.tiene:
+                        if m not in materias_del_ciclo:
+                            materias_del_ciclo.append(m)
+                            
+        materias_del_ciclo = sorted(materias_del_ciclo, key=lambda x: x.name)
 
+        if materias_del_ciclo:
+            st.markdown(f"### 🔍 Diagnóstico del Tutor para Materias del Periodo **{tipo_semestre}**")
+            
+            for mat in materias_del_ciclo:
+                nombre_bonito = mat.name.replace("_", " ").title()
+                es_obligatoria = onto.Obligatoria in mat.is_a if hasattr(onto, "Obligatoria") else False
+                tipo_clase = "Obligatoria" if es_obligatoria else "Optativa"
+                
+                # Controles Históricos directos
+                ya_aprobo = mat in alumno_activo.aprobo if hasattr(alumno_activo, "aprobo") else False
+                esta_cursando = mat in alumno_activo.inscribe if hasattr(alumno_activo, "inscribe") else False
+                
+                if ya_aprobo:
+                    st.markdown(f"#### 🎓 {nombre_bonito} `({tipo_clase})`")
+                    st.warning("**Estatus: Acreditada** \n*Esta materia ya fue aprobada en tu historial académico.*")
+                    st.markdown("---")
+                    continue
+                if esta_cursando:
+                    st.markdown(f"#### ⏳ {nombre_bonito} `({tipo_clase})`")
+                    st.info("**Estatus: Cursando Actualmente** \n*Te encuentras inscrito en esta asignatura.*")
+                    st.markdown("---")
+                    continue
+
+                # Lógica del árbol de prerrequisitos
+                prereqs_totales = mat.tienePrerequisito if hasattr(mat, "tienePrerequisito") else []
+                historial_aprobado = alumno_activo.aprobo if hasattr(alumno_activo, "aprobo") else []
+                puede_cursar_logica = False if prereqs_totales else True
+                if prereqs_totales:
+                    puede_cursar_logica = all(p in historial_aprobado for p in prereqs_totales)
+
+                # Despliegue de Reglas Lógicas
+                if promedio_alumno > 9.0 and es_obligatoria and puede_cursar_logica:
+                    st.markdown(f"#### ⭐ {nombre_bonito} `({tipo_clase})`")
+                    st.success(f"**Estatus: ¡Altamente Recomendada por Excelencia Académica!** \n\n🧬 **Regla Híbrida:** `SWRL S3 Optimizado` \n\n📝 **Lógica:** Tu promedio es destacado ({promedio_alumno} > 9.0) y cubriste la seriación. El tutor te sugiere priorizar esta materia Obligatoria.")
+                elif puede_cursar_logica and len(prereqs_totales) > 0:
+                    st.markdown(f"#### ✅ {nombre_bonito} `({tipo_clase})`")
+                    prereqs_nombres = [p.name.replace("_", " ").title() for p in prereqs_totales]
+                    st.success(f"**Estatus: Autorizada para Cursar** \n\n🧬 **Regla SWRL:** `Validación de Seriación Estricta (Regla 1)` \n\n📝 **Lógica:** Prerrequisitos acreditados: `{', '.join(prereqs_nombres)}`.")
+                elif puede_cursar_logica:
+                    st.markdown(f"#### 🔓 {nombre_bonito} `({tipo_clase})`")
+                    st.success(f"**Estatus: Acceso Libre** \n\n🧬 **Regla SWRL:** `sinPrerequisitos (Regla 4)` \n\n📝 **Lógica:** La asignatura no posee candados académicos previos.")
+                else:
+                    st.markdown(f"#### ❌ {nombre_bonito} `({tipo_clase})`")
+                    faltantes = [p.name.replace("_", " ").title() for p in prereqs_totales if p not in historial_aprobado]
+                    st.error(f"**Estatus: Inscripción Rechazada** \n\n🧬 **Regla SWRL:** `Restricción de Avance (Regla 2)` \n\n📝 **Lógica:** Candados pendientes por acreditar: **{', '.join(faltantes)}**.")
+                st.markdown("---")
+        else:
+            st.warning("No se encontraron materias asociadas a este tipo de periodo.")
+
+        # === NUEVA SUBSECCIÓN: EVALUACIÓN DE OPTATIVAS LIBRES / INDEPENDIENTES ===
+        st.write("")
+        st.subheader("💡 Auditoría Especial de Asignaturas Optativas")
+        st.write("Dado que las asignaturas del bloque de especialidad u optativas no siempre pertenecen a un periodo rígido, aquí puedes consultar la viabilidad de cualquier optativa:")
+        
+        todas_las_optativas = [m for m in onto.Materia.instances() if onto.Optativa in m.is_a]
+        todas_las_optativas = sorted(todas_las_optativas, key=lambda x: x.name)
+        
+        for opt in todas_las_optativas:
+            nombre_opt = opt.name.replace("_", " ").title()
+            
+            # Evitar repetir si ya la aprobó o cursa
+            if opt in (alumno_activo.aprobo if hasattr(alumno_activo, "aprobo") else []):
+                continue
+            if opt in (alumno_activo.inscribe if hasattr(alumno_activo, "inscribe") else []):
+                continue
+                
+            prereqs_opt = opt.tienePrerequisito if hasattr(opt, "tienePrerequisito") else []
+            historial_ap_opt = alumno_activo.aprobo if hasattr(alumno_activo, "aprobo") else []
+            puede_opt = all(p in historial_ap_opt for p in prereqs_opt) if prereqs_opt else True
+            
+            st.markdown(f"##### 🎯 {nombre_opt}")
+            if puede_opt:
+                if prereqs_opt:
+                    prereqs_nombres = [p.name.replace("_", " ").title() for p in prereqs_opt]
+                    st.success(f"**Estatus:** Viable para cursar. Cumples con los prerrequisitos: `{', '.join(prereqs_nombres)}`")
+                else:
+                    st.success("**Estatus:** Viable para cursar. Esta optativa no tiene prerrequisitos obligatorios.")
+            else:
+                faltantes_opt = [p.name.replace("_", " ").title() for p in prereqs_opt if p not in historial_ap_opt]
+                st.error(f"**Estatus: Bloqueada.** Requiere que apruebes primero: **{', '.join(faltantes_opt)}**")
     # ---------------------------------------------------------
     # TAB 3: REGISTRO DE INTERESES DEL ALUMNO (SOLUCIÓN DE PERSISTENCIA)
     # ---------------------------------------------------------
